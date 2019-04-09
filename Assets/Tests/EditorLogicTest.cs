@@ -13,7 +13,7 @@ namespace Tests
         [Test]
         public void UnHideDebugFolders()
         {
-			AssemblingLogic.UnHideAllDeugFolders();
+			AssemblingLogic.UnHideAllDebugFolders();
 			Assert.Pass();
         }
         [Test]
@@ -25,7 +25,7 @@ namespace Tests
         [Test]
         public void EditorLogicTestSimplePasses()
         {
-	        var allFoldersByName = AssemblingLogic.GetAllFoldersByName("Debug~");
+	        var allFoldersByName = AssemblingLogic.GetAllFoldersByName("Debug");
 	        for (int i = 0; i < allFoldersByName.Length; i++){
 				Debug.Log(allFoldersByName[i]);
 	        }

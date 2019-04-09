@@ -12,7 +12,7 @@ namespace Assets.AssemblingTool.Scripts{
 			HideFoldersByName("Debug");
 			AssetDatabase.Refresh();
 		}
-		public static void UnHideAllDeugFolders(){
+		public static void UnHideAllDebugFolders(){
 			UnHideFoldersByName(".Debug");
 			AssetDatabase.Refresh();
 		}
@@ -22,7 +22,7 @@ namespace Assets.AssemblingTool.Scripts{
 
 			for (int i = 0; i < debugFolders.Length; i++){
 				string oldName = debugFolders[i];
-				string newName = oldName.Replace(name, name.Remove(0,1));
+				string newName = oldName.Substring(0,oldName.Length-name.Length-1);
 				MoveDirectory(oldName,newName);
 			}
 		}
