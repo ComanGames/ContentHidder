@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using Assets.AssemblingTool.Scripts;
+﻿using Assets.AssemblingTool.Scripts;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 namespace Tests
 {
@@ -12,24 +10,32 @@ namespace Tests
         [Test]
         public void UnHideDebugFolders()
         {
-			AssemblingLogic.UnHideAllDebugFolders();
+	        AssemblingLogic.UnHideAllInDebugFolders();
+	        Assert.Pass();
+        }
+        [Test]
+        public void CreateDebugFolder()
+        {
+	        AssemblingLogic.HideAllInDebugFolders();
+	        Assert.Pass();
+        }
+
+        [Test]
+        public void GetDebugFoldersContent()
+        {
+			AssemblingLogic.GetDebugFoldersContent();
 			Assert.Pass();
         }
 
-		[Test]
+        [Test]
         public void RemoveDebugContent(){
 	        
 			AssemblingLogic.RemoveDebugFoldersDuplicates();
 			Assert.Pass();
         }
+
         [Test]
-        public void CreateDebugFolder()
-        {
-			AssemblingLogic.HideAllInDebugFolders();
-			Assert.Pass();
-        }
-        [Test]
-        public void EditorLogicTestSimplePasses()
+        public void ZEditorImportTest()
         {
 	        var allFoldersByName = AssemblingLogic.GetAllFoldersByName("Debug");
 	        for (int i = 0; i < allFoldersByName.Length; i++){

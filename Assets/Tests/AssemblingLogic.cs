@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -12,29 +11,39 @@ namespace Assets.AssemblingTool.Scripts{
 			HideFoldersByName("Debug");
 			AssetDatabase.Refresh();
 		}
+		public static void UnHideAllInDebugFolders(){
+			UnHideFoldersByName("Debug");
+			AssetDatabase.Refresh();
+		}
 
 		public static void RemoveDebugFoldersDuplicates(){
 			RemoveFoldersContentByName(".Debug");
 			AssetDatabase.Refresh();
 		}
 
-		public static void UnHideAllDebugFolders(){
-			UnHideFoldersByName(".Debug");
+		public static void GetDebugFoldersContent(){
+			UnPackFoldersByName(".Debug");
 			AssetDatabase.Refresh();
 		}
 
 		private static void RemoveFoldersContentByName(string name){
-
 			string[] folders = GetAllFoldersByName(name);
-			for (int i = 0; i < folders.Length; i++){
-				string oldName = folders[i];
+			foreach (var oldName in folders){
 				string newName = oldName.Substring(0,oldName.Length-name.Length-1);
 				RemoveFilesIfDublicate(oldName, newName);
 			}
-
 		}
 
 		private static void UnHideFoldersByName( string name){
+			string[] folders = GetAllFoldersByName("." +name);
+
+			for (int i = 0; i < folders.Length; i++){
+				string oldName = folders[i];
+				string newName = oldName.Substring(0,oldName.Length-name.Length-1)+name;
+				MoveDirectory(oldName,newName);
+			}
+		}
+		private static void UnPackFoldersByName( string name){
 			string[] folders = GetAllFoldersByName(name);
 
 			for (int i = 0; i < folders.Length; i++){
@@ -99,7 +108,7 @@ namespace Assets.AssemblingTool.Scripts{
 						try{
 							File.Delete(targetFile);
 						}
-						catch (IOException e){
+						catch (IOException ){
 							File.Delete(targetFile);
 						}
 					}
