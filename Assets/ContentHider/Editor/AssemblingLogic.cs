@@ -68,7 +68,7 @@ namespace Assets.ContentHider.Editor{
 		}
 
 
-		public string[] GetAllFoldersByName(string name){
+		private string[] GetAllFoldersByName(string name){
 			List<string> paths =  new List<string>();
 			string rootFolder = Application.dataPath;
 			string[] subFolders = GetSub(rootFolder);
@@ -128,7 +128,7 @@ namespace Assets.ContentHider.Editor{
 			}
 		}
 
-		public void MoveFiles(string source, string target)
+		private void MoveFiles(string source, string target)
 		{
 			var stack = new Stack<AssemblerFolder>();
 			stack.Push(new AssemblerFolder(source, target));
@@ -151,7 +151,7 @@ namespace Assets.ContentHider.Editor{
 			}
 		}
 
-		public void MoveDirectory(string source, string target)
+		private void MoveDirectory(string source, string target)
 		{
 			var stack = new Stack<AssemblerFolder>();
 			stack.Push(new AssemblerFolder(source, target));
