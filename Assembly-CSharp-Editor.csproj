@@ -60,7 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\ImportingAssetTest.cs" />
+    <Compile Include="Assets\ContentHider\Editor\AssemblingLogic.cs" />
+    <Compile Include="Assets\ContentHider\Editor\AssemblingLogic.Folders.cs" />
+    <Compile Include="Assets\ContentHider\Editor\ContentHider.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/coman/Documents/TextureCompressionTest]/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
