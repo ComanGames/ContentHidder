@@ -2,6 +2,9 @@
 This utility allows you to create diffrent assemblies of your project.
 ![Alt Text](https://media.giphy.com/media/LP6gJNA1LOMyHxqMlL/giphy.gif)
 
+## Naming
+Create folder "DebugContent" or "ReleaseContent"  in order to use the plugin
+
 ## Usage
 
 ### Hiding
