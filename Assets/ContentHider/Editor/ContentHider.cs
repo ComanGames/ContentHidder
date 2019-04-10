@@ -20,7 +20,7 @@ namespace Assets.ContentHider.Editor{
 		}
 
 		private static void HiderForFolder(AssemblingLogic logic){
-			EditorGUILayout.LabelField("Debug  content");
+			EditorGUILayout.LabelField(logic.Name+ " content");
 			EditorGUILayout.BeginHorizontal();
 			if (GUILayout.Button("Show")){
 				logic.UnpackDebugFolderContent();
@@ -45,7 +45,7 @@ namespace Assets.ContentHider.Editor{
 			if (_debugLogic == null)
 				_debugLogic = new AssemblingLogic("Debug");
 			if (_releaseLogic == null)
-				_releaseLogic = new AssemblingLogic("Debug");
+				_releaseLogic = new AssemblingLogic("Release");
 		}
 	}
 }

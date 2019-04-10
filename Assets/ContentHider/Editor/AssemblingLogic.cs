@@ -6,27 +6,27 @@ using UnityEngine;
 namespace Assets.ContentHider.Editor{
 	public  class AssemblingLogic 
 	{
-		private string name ;
+		public string Name ;
 		public AssemblingLogic(string name){
-			this.name = name;
+			this.Name = name;
 		}
 
 		public void HideAllInFolders(){
-			HideFoldersByName(name);
+			HideFoldersByName(Name);
 			AssetDatabase.Refresh();
 		}
 		public void UnHideAllInFolders(){
-			UnHideFoldersByName(name);
+			UnHideFoldersByName(Name);
 			AssetDatabase.Refresh();
 		}
 
 		public  void UnpackDebugFolderContent(){
-			UnPackFoldersByName("."+name);
+			UnPackFoldersByName("."+Name);
 			AssetDatabase.Refresh();
 		}
 
 		public void RemoveDebugContent(){
-			RemoveFoldersContentByName("."+name);
+			RemoveFoldersContentByName("."+Name);
 			AssetDatabase.Refresh();
 		}
 
