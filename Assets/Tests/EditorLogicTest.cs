@@ -15,6 +15,13 @@ namespace Tests
 			AssemblingLogic.UnHideAllDebugFolders();
 			Assert.Pass();
         }
+
+		[Test]
+        public void RemoveDebugContent(){
+	        
+			AssemblingLogic.RemoveDebugFoldersDuplicates();
+			Assert.Pass();
+        }
         [Test]
         public void CreateDebugFolder()
         {

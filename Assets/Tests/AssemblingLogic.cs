@@ -95,11 +95,17 @@ namespace Assets.AssemblingTool.Scripts{
 				foreach (var file in Directory.GetFiles(folders.Source, "*.*"))
 				{
 					string targetFile = Path.Combine(folders.Target, Path.GetFileName(file));
-					if (File.Exists(targetFile)) 
-						File.Delete(targetFile);
+					if (File.Exists(targetFile)){
+						try{
+							File.Delete(targetFile);
+						}
+						catch (IOException e){
+							File.Delete(targetFile);
+						}
+					}
 				}
 
-				if(Directory.Exists(folders.Target))
+				if(target!=folders.Target&&Directory.Exists(folders.Target))
 					Directory.Delete(folders.Target);
 
 				foreach (var folder in Directory.GetDirectories(folders.Source))
