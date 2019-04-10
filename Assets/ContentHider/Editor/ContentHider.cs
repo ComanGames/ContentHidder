@@ -22,14 +22,14 @@ namespace Assets.ContentHider.Editor{
 		private static void HiderForFolder(AssemblingLogic logic){
 			EditorGUILayout.LabelField(logic.Name+ " content");
 			EditorGUILayout.BeginHorizontal();
-			if (GUILayout.Button("Show")){
-				logic.UnpackDebugFolderContent();
-				AssetDatabase.Refresh();
-			}
-
 			if (GUILayout.Button("Hide")){
 				logic.RemoveDebugContent();
 				logic.HideAllInFolders();
+				AssetDatabase.Refresh();
+			}
+
+			if (GUILayout.Button("Show")){
+				logic.UnpackDebugFolderContent();
 				AssetDatabase.Refresh();
 			}
 
@@ -43,9 +43,9 @@ namespace Assets.ContentHider.Editor{
 
 		private void LogicCreation(){
 			if (_debugLogic == null)
-				_debugLogic = new AssemblingLogic("Debug");
+				_debugLogic = new AssemblingLogic("DebugContent");
 			if (_releaseLogic == null)
-				_releaseLogic = new AssemblingLogic("Release");
+				_releaseLogic = new AssemblingLogic("ReleaseContent");
 		}
 	}
 }
